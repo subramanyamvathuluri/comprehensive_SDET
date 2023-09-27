@@ -1,0 +1,64 @@
+
+
+mysql> use employees;
+Database changed
+mysql> create table emp_data(EMP_No integer, EMP_Name varchar(100), EMP_Exp integer, EMP_Department varchar(50), EMP_Salary integer);
+0 row(s) affected
+mysql> select * from emp_data;
++--------+----------+---------+----------------+------------+
+| EMP_No | EMP_Name | EMP_Exp | EMP_Department | EMP_Salary |
++--------+----------+---------+----------------+------------+
+|   1234 | Subbu    |       3 | Testing        |      56789 |
+|   7837 | Rahul    |       5 | Testing        |    3898793 |
+|   9892 | John     |       1 | Development    |       9882 |
+|   3897 | Uma      |       2 | R&D            |       1216 |
+|   3897 | Uma      |       2 | R&D            |       1216 |
+|  45352 | Anjali   |       7 | R&D            |     878796 |
++--------+----------+---------+----------------+------------+
+
+create table emp_test(EMP_No integer, EMP_Name varchar(100), EMP_Exp integer, EMP_Department varchar(50), EMP_Salary integer);
+
+
+ALTER TABLE emp_test ADD email varchar(100);
+mysql> select * from emp_test;
++--------+----------+---------+----------------+------------+-------+
+| EMP_No | EMP_Name | EMP_Exp | EMP_Department | EMP_Salary | email |
++--------+----------+---------+----------------+------------+-------+
+|  33464 | Rejitha  |       5 | Development    |      37349 | NULL  |
++--------+----------+---------+----------------+------------+-------+
+1 row in set (0.00 sec)
+
+
+mysql> ALTER TABLE emp_test RENAME COLUMN email TO EMP_Email;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM EMP_TEST;
++--------+----------+---------+----------------+------------+-----------+
+| EMP_No | EMP_Name | EMP_Exp | EMP_Department | EMP_Salary | EMP_Email |
++--------+----------+---------+----------------+------------+-----------+
+|  33464 | Rejitha  |       5 | Development    |      37349 | NULL      |
++--------+----------+---------+----------------+------------+-----------+
+1 row in set (0.03 sec)
+
+mysql> ALTER TABLE emp_test RENAME COLUMN email TO EMP_Email;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM EMP_TEST;
++--------+----------+---------+----------------+------------+-----------+
+| EMP_No | EMP_Name | EMP_Exp | EMP_Department | EMP_Salary | EMP_Email |
++--------+----------+---------+----------------+------------+-----------+
+|  33464 | Rejitha  |       5 | Development    |      37349 | NULL      |
++--------+----------+---------+----------------+------------+-----------+
+1 row in set (0.03 sec)
+
+
+mysql> SELECT * FROM EMP_DATA WHERE EMP_DEPARTMENT="Testing";
++--------+----------+---------+----------------+------------+
+| EMP_No | EMP_Name | EMP_Exp | EMP_Department | EMP_Salary |
++--------+----------+---------+----------------+------------+
+|   1234 | Subbu    |       3 | Testing        |      56789 |
+|   7837 | Rahul    |       5 | Testing        |    3898793 |
++--------+----------+---------+----------------+------------+
+2 rows in set (0.01 sec)
